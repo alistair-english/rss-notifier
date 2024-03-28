@@ -35,7 +35,7 @@ while True:
         last_opened_path = Path(__file__).parent / Path("_data") / Path(slugify(url))
         if last_opened_path.exists():
             with open(last_opened_path, 'r') as f:
-                last_opened = dt.datetime.fromisoformat(f.read())
+                last_opened = dt.datetime.fromisoformat(f.read().strip())
         else:
             last_opened_path.parent.mkdir(parents=True, exist_ok=True)
             last_opened_path.touch()
